@@ -1,0 +1,46 @@
+{ 
+   "intents": [ 
+		{
+			"intent": "VolumeUpIntent",
+			"slots": [
+				{
+					"name": "Volume",
+					"type": "AMAZON.NUMBER"
+				}
+			]
+		},
+		{
+			"intent": "VolumeDownIntent",
+			"slots": [
+				{
+					"name": "Volume",
+					"type": "AMAZON.NUMBER"
+				}
+			]
+		},
+		{
+			"intent": "ChannelUpIntent"
+		},
+		{
+			"intent": "ChannelDownIntent"
+		},
+		{
+			"intent": "ChannelChangeIntent",
+			"slots": [
+				{
+					"name": "Channel",
+					"type": "AMAZON.NUMBER"
+				}
+			]
+		},
+		{
+			"intent": "TogglePowerTVIntent"
+		},
+		{
+			"intent": "TogglePowerCableIntent"
+		},
+		{
+			"intent": "TogglePowerAllIntent"
+		}
+	] 
+}

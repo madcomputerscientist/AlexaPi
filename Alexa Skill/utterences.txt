@@ -1,0 +1,52 @@
+TogglePowerAllIntent power on
+TogglePowerAllIntent power off
+TogglePowerAllIntent turn on
+TogglePowerAllIntent turn off
+
+TogglePowerTVIntent power on the tv
+TogglePowerTVIntent power off the tv
+TogglePowerTVIntent turn on the tv
+TogglePowerTVIntent turn off the tv
+
+TogglePowerCableIntent power on the cable
+TogglePowerCableIntent power off the cable
+TogglePowerCableIntent turn on the cable
+TogglePowerCableIntent turn off the cable
+TogglePowerCableIntent power on the cable box
+TogglePowerCableIntent power off the cable box
+TogglePowerCableIntent turn on the cable box
+TogglePowerCableIntent turn off the cable box
+
+VolumeUpIntent increase volume
+VolumeUpIntent increase the volume
+VolumeUpIntent raise volume
+VolumeUpIntent volume up
+
+VolumeUpIntent increase volume by {Volume}
+VolumeUpIntent increase the volume by {Volume}
+VolumeUpIntent raise volume by {Volume}
+VolumeUpIntent raise the volume by {Volume}
+VolumeUpIntent volume up by {Volume}
+
+VolumeDownIntent lower volume
+VolumeDownIntent lower the volume
+VolumeDownIntent volume down
+
+VolumeDownIntent lower volume by {Volume}
+VolumeDownIntent lower the volume by {Volume}
+VolumeDownIntent volume down by {Volume}
+
+ChannelUpIntent change to the next channel
+ChannelUpIntent next channel
+ChannelUpIntent channel up
+ChannelUpIntent channel plus
+
+ChannelDownIntent change to the previous channel
+ChannelDownIntent previous channel
+ChannelDownIntent last channel
+ChannelDownIntent channel down
+ChannelDownIntent channel minus
+
+ChannelChangeIntent change to {Channel}
+ChannelChangeIntent change the channel to {Channel}
+ChannelChangeIntent channel {Channel}

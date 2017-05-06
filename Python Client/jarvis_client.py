@@ -16,9 +16,9 @@ def callback(message, channel):
     except KeyError:
         channel = 0
 
-    print(command)
-    print(volume)
-    print(channel)
+    #print(command)
+    #print(volume)
+    #print(channel)
 
     remoteURL = "http://raspberrypi.local/irremote.php?remote={remote}&key={key}"
 

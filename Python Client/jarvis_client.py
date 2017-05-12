@@ -7,18 +7,26 @@ channel = "Alexa Pi"
 
 def callback(message, channel):
     command = message['command']
+
     try:
         volume = int(message['volume'])
     except KeyError:
         volume = 3
+
     try:
-        channel = message['channel']
+        channelNo = message['channel']
     except KeyError:
-        channel = 0
+        channelNo = 0
+
+    try:
+        source = message['source']
+    except KeyError:
+        source = 'TV'
 
     #print(command)
     #print(volume)
-    #print(channel)
+    #print(channelNo)
+    #print(source)
 
     remoteURL = "http://raspberrypi.local/irremote.php?remote={remote}&key={key}"
 
@@ -43,31 +51,55 @@ def callback(message, channel):
         elif command == "ChannelDownIntent":
             requests.get(remoteURL.replace("{remote}", "twc").replace("{key}", "KEY_CHANNELDOWN"))
         elif command == "ChannelChangeIntent":
-            if (channel != 0):
-                for index in range (0, len(channel)):
-                    if channel[index] == '0':
+            if (channelNo != 0):
+                for index in range (0, len(channelNo)):
+                    if channelNo[index] == '0':
                         channelKey = "KEY_0"
-                    elif channel[index] == '1':
+                    elif channelNo[index] == '1':
                         channelKey = "KEY_1"
-                    elif channel[index] == '2':
+                    elif channelNo[index] == '2':
                         channelKey = "KEY_2"
-                    elif channel[index] == '3':
+                    elif channelNo[index] == '3':
                         channelKey = "KEY_3"
-                    elif channel[index] == '4':
+                    elif channelNo[index] == '4':
                         channelKey = "KEY_4"
-                    elif channel[index] == '5':
+                    elif channelNo[index] == '5':
                         channelKey = "KEY_5"
-                    elif channel[index] == '6':
+                    elif channelNo[index] == '6':
                         channelKey = "KEY_6"
-                    elif channel[index] == '7':
+                    elif channelNo[index] == '7':
                         channelKey = "KEY_7"
-                    elif channel[index] == '8':
+                    elif channelNo[index] == '8':
                         channelKey = "KEY_8"
-                    elif channel[index] == '9':
+                    elif channelNo[index] == '9':
                         channelKey = "KEY_9"
 
                     requests.get(remoteURL.replace("{remote}", "twc").replace("{key}", channelKey))
                     time.sleep(1)
+        elif command == "ToggleClosedCaptionIntent":
+            requests.get(remoteURL.replace("{remote}", "twc").replace("{key}", "KEY_SETUP"))
+            time.sleep(1)
+            requests.get(remoteURL.replace("{remote}", "twc").replace("{key}", "KEY_SELECT"))
+            time.sleep(1)
+            requests.get(remoteURL.replace("{remote}", "twc").replace("{key}", "KEY_DOWN"))
+            time.sleep(1)
+            requests.get(remoteURL.replace("{remote}", "twc").replace("{key}", "KEY_SELECT"))
+            time.sleep(1)
+            requests.get(remoteURL.replace("{remote}", "twc").replace("{key}", "KEY_EXIT"))
+        elif command == "ChangeInputIntent":
+            requests.get(remoteURL.replace("{remote}", "hometv").replace("{key}", "KEY_CYCLEWINDOWS"))
+            time.sleep(1)
+
+            if source == "Xbox":
+                channelKey = "KEY_2"
+            elif source == "apple TV":
+                channelKey = "KEY_3"
+            elif source == "TV":
+                channelKey = "KEY_4"
+            else:
+                channelKey = "KEY_4"
+            
+            requests.get(remoteURL.replace("{remote}", "hometv").replace("{key}", channelKey))
     except ConnectionError:
         error("Connection error")
             

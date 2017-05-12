@@ -41,6 +41,18 @@
 		},
 		{
 			"intent": "TogglePowerAllIntent"
+		},
+		{
+			"intent": "ToggleClosedCaptionIntent"
+		},
+		{
+			"intent": "ChangeInputIntent",
+			"slots": [
+				{
+					"name": "Source",
+					"type": "TV_INPUTS"
+				}
+			]
 		}
-	] 
+	]
 }

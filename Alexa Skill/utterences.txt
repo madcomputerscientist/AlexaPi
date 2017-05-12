@@ -50,3 +50,8 @@ ChannelDownIntent channel minus
 ChannelChangeIntent change to {Channel}
 ChannelChangeIntent change the channel to {Channel}
 ChannelChangeIntent channel {Channel}
+
+ToggleClosedCaptionIntent closed caption
+
+ChangeInputIntent switch to {Source}
+ChangeInputIntent change to {Source}

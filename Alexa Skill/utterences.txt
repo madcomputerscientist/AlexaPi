@@ -55,3 +55,32 @@ ToggleClosedCaptionIntent closed caption
 
 ChangeInputIntent switch to {Source}
 ChangeInputIntent change to {Source}
+
+TurnOnLightsIntent turn on the lights
+TurnOnLightsIntent switch on the lights
+TurnOnLightsIntent lights on
+TurnOnLightsIntent turn on the light
+TurnOnLightsIntent switch on the light
+TurnOnLightsIntent light on
+
+TurnOffLightsIntent turn off the lights
+TurnOffLightsIntent switch off the lights
+TurnOffLightsIntent lights off
+TurnOffLightsIntent turn off the light
+TurnOffLightsIntent switch off the light
+TurnOffLightsIntent light off
+
+TurnOnWhiteLightIntent turn on the white lights
+TurnOnWhiteLightIntent turn on the white light
+TurnOnWhiteLightIntent white lights
+TurnOnWhiteLightIntent white light
+
+TurnOnYellowLightIntent turn on the yellow lights
+TurnOnYellowLightIntent turn on the yellow light
+TurnOnYellowLightIntent yellow lights
+TurnOnYellowLightIntent yellow light
+
+BlinkLightIntent blink the lights
+BlinkLightIntent blink lights
+BlinkLightIntent blink the light
+BlinkLightIntent blink light

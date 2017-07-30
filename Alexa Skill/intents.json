@@ -53,6 +53,21 @@
 					"type": "TV_INPUTS"
 				}
 			]
+		},
+		{
+			"intent": "TurnOnLightsIntent"
+		},
+		{
+			"intent": "TurnOffLightsIntent"
+		},
+		{
+			"intent": "TurnOnWhiteLightIntent"
+		},
+		{
+			"intent": "TurnOnYellowLightIntent"
+		},
+		{
+			"intent": "BlinkLightIntent"
 		}
 	]
 }

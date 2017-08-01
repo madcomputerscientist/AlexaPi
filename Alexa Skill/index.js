@@ -118,13 +118,13 @@ exports.handler = (event, context) => {
 
           case "TurnOnWhiteLightIntent":
             messageRequest.command = "White";
-            intentResponse = `White lights turned off`;
+            intentResponse = `White lights turned on`;
             targetClient = PubnubClient.SmartLamp;
             break;
 
           case "TurnOnYellowLightIntent":
             messageRequest.command = "Yellow";
-            intentResponse = `Yellow lights turned off`;
+            intentResponse = `Yellow lights turned on`;
             targetClient = PubnubClient.SmartLamp;
             break;
 

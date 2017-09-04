@@ -10,7 +10,7 @@ var pubnubClientSmartLamp = require("pubnub")({
   publish_key   : "pub-c-0bed295e-a3e2-451a-882c-76cda83f73c9",
   subscribe_key : "sub-c-3477209c-225a-11e7-894d-0619f8945a4f"
 });
-var smartLampChannel = "Smart Lamp";
+var smartLampChannel = "SmartLamp";
 
 PubnubClient = {
   AlexaPi: 0,

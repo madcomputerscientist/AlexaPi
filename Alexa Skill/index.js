@@ -12,6 +12,21 @@ var pubnubClientSmartLamp = require("pubnub")({
 });
 var smartLampChannel = "SmartLamp";
 
+const request = require('request');
+const particleSettings = {
+    event: "SMARTLAMP",
+    access_token: "453744a9193ee961ba4e008f145fb7f3245796ab"
+};
+
+const publishUrl = "https://api.particle.io/v1/devices/events";
+const publishOptions = {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: "name=" + particleSettings.event + "&data={COMMAND}&private=false&ttl=60&access_token=" + particleSettings.access_token
+};
+
 PubnubClient = {
   AlexaPi: 0,
   SmartLamp: 1
@@ -143,7 +158,9 @@ exports.handler = (event, context) => {
           pubnubPublish(context, pubnubClientAlexa, alexaChannel, messageRequest, intentResponse);
         }
         else if (targetClient == PubnubClient.SmartLamp) {
-          pubnubPublish(context, pubnubClientSmartLamp, smartLampChannel, messageRequest, intentResponse);
+          //pubnubPublish(context, pubnubClientSmartLamp, smartLampChannel, messageRequest, intentResponse);
+          // Use particle publish
+          particlePublish(messageRequest.command, context, intentResponse);
         }        
         break;
 
@@ -161,6 +178,27 @@ exports.handler = (event, context) => {
 }
 
 // Helpers
+particlePublish = (command, context, intent) => {
+  console.log(publishOptions);
+
+  var publishCommand = JSON.parse(JSON.stringify(publishOptions).replace('{COMMAND}', command));
+
+  console.log(publishCommand);
+
+  request(publishUrl, publishCommand, function (error, response, body) {
+    console.log('error:', error); // Print the error if one occurred
+    console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+    console.log('body:', body); // Print the HTML for the Google homepage.
+
+    context.succeed(
+      generateResponse(
+          buildSpeechletResponse(intent, true),
+          {}
+      )
+    );
+  });
+}
+
 pubnubPublish = (context, client, channel, message, intent) => {
   client.publish({ //Publishes the message to my PubHub Device.
       channel   : channel,

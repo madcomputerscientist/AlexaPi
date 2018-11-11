@@ -23,10 +23,10 @@ def callback(message, channel):
     except KeyError:
         source = 'TV'
 
-    #print(command)
-    #print(volume)
-    #print(channelNo)
-    #print(source)
+    print(command)
+    print(volume)
+    print(channelNo)
+    print(source)
 
     remoteURL = "http://raspberrypi.local/irremote.php?remote={remote}&key={key}"
 
@@ -90,9 +90,9 @@ def callback(message, channel):
             requests.get(remoteURL.replace("{remote}", "hometv").replace("{key}", "KEY_CYCLEWINDOWS"))
             time.sleep(1)
 
-            if source == "Xbox":
+            if source == "computer":
                 channelKey = "KEY_2"
-            elif source == "apple TV":
+            elif source == "Xbox":
                 channelKey = "KEY_3"
             elif source == "TV":
                 channelKey = "KEY_4"
